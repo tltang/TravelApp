@@ -39,17 +39,19 @@ module.exports = {
             template: "./src/client/views/index.html",
             filename: "./index.html",
         }),
-        // new HtmlWebPackPlugin({
-        //     template: "./src/client/views/NLP2.html",
-        //     filename: "./NLP2.html",
-        // }),
-        new webpack.DefinePlugin( {
-           API_KEY1: JSON.stringify(process.env.API_KEY)
+        new HtmlWebPackPlugin({
+            template: "./src/client/views/index1.html",
+            filename: "./index1.html",
         }),
-        // new CopyPlugin([
-        //     {from: "./src/client/images/NLP.jpg", to: './images/NLP.jpg'}],
-        // ),
+        new webpack.DefinePlugin( {
+           API_KEY1: JSON.stringify(process.env.API_KEY),
+           OpenWBaseURI: JSON.stringify(process.env.OpenWeatherURI),
+           OpenWAPI: JSON.stringify(process.env.OpenWeatherAPI)
+        }),
+        new CopyPlugin([
+            {from: "./src/client/media/Travel.jpg", to: './media/Travel.jpg'}],
+        ),
         new MiniCssExtractPlugin({filename: '[name].css'}),
-        new WorkboxPlugin.GenerateSW()
+        // new WorkboxPlugin.GenerateSW()
     ]
 }

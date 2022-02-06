@@ -1,35 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<title>Weather Journal</title>
-<link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<title>Travel Application</title>
 </head>
  <body>
-<div id = "app">
-  <div class ="holder headline">
-    Weather Journal App
-  </div>
-  <div class ="holder zip">
-    <label for="zip">Enter Zipcode here</label>
-    <input type="text" id="zip" placeholder="enter zip code here">
-  </div>
-  <div class ="holder feel">
-    <label for="feelings">How are you feeling today?</label>
-    <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
-    <button id="generate" type = "submit"> Generate </button>
-  </div>
-  <div class ="holder entry">
-    <div class = "title">Most Recent Entry</div>
-   <div id = "entryHolder">
-    <div id = "date"></div> 
-   <div id = "temp"></div>
-   <div id = "content"></div>
-  </div>
-  </div>
-  </div>
-<script src="app.js" type="text/javascript"></script>
+ <header>
+     <div class="">
+         <h1>Travel App</h1>
+         <img src="./media/Travel.jpg" alt="Travel Img" style="width:300px;height:200px;">
+     </div>
+     <div id="navbar">
+         <div class= "hdnavbar" id="home"><a href="index.html">Home</a></div>
+         <div class= "hdnavbar" id="previous"><a href="index.html">&laquo; Prev</a></div>
+         <div class= "hdnavbar" id="next"><a href="index1.html">Next &raquo;</a></div>
+         <div class= "hdnavbar" id="apisource"><a href="https://www.meaningcloud.com/developer/apis" target="_blank">API Source</a></div>
+     </div>
+ </header>
+ <main>
+     <section>
+         <H1>Zip Code</H1>
+         <br>
+         <form class="" onsubmit="return Client.handleSubmit3(event)">
+         <div class ="holder zip">
+             <label for="zip">Enter Zipcode here</label>
+             <input type="text" id="zip" placeholder="enter zip code here" onfocus="Client.onFocus1()" onblur="Client.onBlur1()">
+         </div>
+         <div class ="holder feel">
+             <label for="feelings">How are you feeling today?</label>
+             <textarea class= "myInput" id="feelings" onfocus="Client.onFocus2()" onblur="Client.onBlur2()" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
+             <button id="generate" type = "submit" name="" value="submit" onclick="return Client.handleSubmit3(event)" onsubmit="return Client.handleSubmit3(event)"> Generate </button>
+         </div>
+         </form>
+         <div class="LoadImage"></div>
+     </section>
 
+     <section>
+         <strong>Form Results:</strong><br>
+         <div class ="holder entry">
+             <div class = "title">Most Recent Entry</div>
+             <div id = "entryHolder">
+                 <div id = "date"></div>
+                 <div id = "temp"></div>
+                 <div id = "content"></div>
+             </div>
+         </div>
+         <div class='scoreboard'></div>
+     </section>
+ </main>
 </body>
 </html>

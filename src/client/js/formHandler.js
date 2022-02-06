@@ -8,6 +8,22 @@ export function onBlur() {
     document.getElementById('name').style.backgroundColor = "";
 }
 
+export function onFocus1() {
+    document.getElementById('zip').style.backgroundColor = "yellow";
+}
+
+export function onBlur1() {
+    document.getElementById('zip').style.backgroundColor = "";
+}
+
+export function onFocus2() {
+    document.getElementById('feelings').style.backgroundColor = "yellow";
+}
+
+export function onBlur2() {
+    document.getElementById('feelings').style.backgroundColor = "";
+}
+
 export function handleSubmit(event) {
     event.preventDefault()
 
@@ -72,6 +88,33 @@ export function handleSubmit2(event) {
         Client.fetchCategory(baseURL, requestOptions);
     } else {
         alert('Please enter a URL first!');
+    }
+}
+
+export function handleSubmit3(event) {
+    event.preventDefault()
+
+    // Personal API Key for OpenWeatherMap API
+    // Directives &units=imperial for Fahrenheit or &units=metric for celsius is added in our final URL formed for API calls.
+    // const apiKey = '&appid=8352ebdbd0ef002753e1b61f4c02256f&units=imperial';
+    // let baseURL = 'https://api.openweathermap.org/data/2.5/weather?zip='
+    const apiKey = OpenWAPI;
+    let baseURL = OpenWBaseURI;
+
+    // console.log("i am in submit");
+    // check what text was put into the form field
+    let formText = document.getElementById('zip').value
+    const isValid = Client.checkForZip(formText);
+
+    // console.log(requestOptions);
+    // console.log("::: Form Submitted :::")
+    if (isValid) {
+        const newZip     =  document.getElementById('zip').value + ",us";
+        const Feeling    =  document.getElementById('feelings').value;
+        Client.fetchZip(baseURL, apiKey, newZip);
+    }
+    else {
+        alert('Please enter a valid zip first');
     }
 }
 
