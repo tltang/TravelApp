@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>NLP Language Identifier</title>
+    </head>
+
+    <body>
+        <header>
+            <div class="">
+                <img src="./images/NLP.jpg" alt="NLP" style="width:100px;height:100px;">
+            </div>
+            <div id="navbar">
+                <div class= "hdnavbar" id="home"><a href="index.html">Home</a></div>
+                <div class= "hdnavbar" id="previous"><a href="index.html">&laquo; Prev</a></div>
+                <div class= "hdnavbar" id="next"><a href="NLP2.html">Next &raquo;</a></div>
+                <div class= "hdnavbar" id="apisource"><a href="https://www.meaningcloud.com/developer/apis" target="_blank">API Source</a></div>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <H1>Language Identification</H1>
+                <br>
+                <p><h3>Language Identification automatically detects the language of texts obtained from any source. Enter a phrase in any language
+                    below, and the NLP API will identify the language name for you.</h3></p>
+                <form class="" onsubmit="return Client.handleSubmit(event)">
+                    <input id="name" type="text" name="input" value="" onfocus="Client.onFocus()" onblur="Client.onBlur()" placeholder="Phrase">
+                    <input id="subBtn" type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                </form>
+                <div class="LoadImage"></div>
+            </section>
+
+            <section>
+                <strong>Form Results:</strong><br>
+                <div class='scoreboard'></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Footer</p>
+        </footer>
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
+    </body>
+</html>

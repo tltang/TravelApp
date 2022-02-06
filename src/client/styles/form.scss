@@ -1,0 +1,48 @@
+form {
+    border: 1px solid #545454;
+    border-radius: 3px;
+    padding: 40px;
+}
+
+input {
+    padding: 5px 20px;
+    width: 100%;
+    line-height: 16px;
+    margin: 10px 0;
+}
+
+#subBtn {
+    background: teal;
+    color: white;
+
+    &:hover {
+        background:aqua;
+    }
+    &:visited {
+        background: fuchsia;
+    }
+}
+
+.scoreboardTable {
+    padding: 0;
+    margin: auto;
+    border-collapse: collapse;
+    width: 80%;
+    text-align: center;
+    color: rgba(6, 7, 5, 0.72);
+}
+.scoreboardTableHeaderRow {
+    color: darkorange;
+    font-weight: bold;
+    height: 50px;
+}
+.scoreboardTableBodyRow:nth-child(odd){background-color: rgba(128, 128, 128, 0.050);}
+#latestUserScore {
+    background-color: crimson;
+}
+.scoreboardTableBodyRow:hover{
+    background-color: darkorange;
+}
+.scoreboardTable tr td {
+    height: 25px;
+}

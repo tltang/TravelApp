@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Deep Categorization</title>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="">
+                <img src="./images/NLP.jpg" alt="NLP" style="width:100px;height:100px;">
+            </div>
+            <div id="navbar">
+                <div class= "hdnavbar" id="home"><a href="index.html">Home</a></div>
+                <div class= "hdnavbar" id="previous"><a href="index.html">&laquo; Prev</a></div>
+                <div class= "hdnavbar" id="next"><a href="NLP2.html">Next &raquo;</a></div>
+                <div class= "hdnavbar" id="apisource"><a href="https://www.meaningcloud.com/developer/apis" target="_blank">API Source</a></div>
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <H1>Deep Categorization</H1><br>
+                <p><h3>Deep Categorization is MeaningCloud's solution for in-depth rule-based categorization. It assigns one or more categories to a text,
+                    using a very detailed rule-based language that allows you to identify very specific scenarios and patterns using a combination of
+                    morphological, semantic and text rules.
+                    In the below text box, enter a URL and the API will return the categories this website belongs to</h3></p>
+                <form class="" onsubmit="return Client.handleSubmit2(event)">
+                    <input id="name" type="text" name="input" value="" onfocus="Client.onFocus()" onblur="Client.onBlur()" placeholder="url">
+                    <label for="Model">Choose a Model:</label>
+
+                    <select name="Model" id="models">
+                        <option value="IAB_2.0">IAB_2.0</option>
+                        <option value="IAB_2.0-tier3">IAB_2.0-tier3</option>
+                        <option value="IAB_2.0-tier4">IAB_2.0-tier4</option>
+                    </select>
+                    <input id="subBtn" type="submit" name="" value="submit" onclick="return Client.handleSubmit2(event)" onsubmit="return Client.handleSubmit2(event)">
+                </form>
+            </section>
+
+            <section>
+                <strong>Form Results:</strong><br>
+                <div class='scoreboard'></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Footer</p>
+        </footer>
+
+    </body>
+</html>
