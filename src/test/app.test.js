@@ -1,5 +1,5 @@
 // Import the js file to test
-import {checkForInput, checkForZip} from '../client/js/nameChecker'
+import app from '../server/server'
 
 // // The describe() function takes two arguments - a string description, and a test suite as a callback function.
 // // A test suite may contain one or more related tests

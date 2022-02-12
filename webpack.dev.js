@@ -45,7 +45,13 @@ module.exports = {
         new webpack.DefinePlugin( {
             API_KEY1: JSON.stringify(process.env.API_KEY),
             OpenWBaseURI: JSON.stringify(process.env.OpenWeatherURI),
-            OpenWAPI: JSON.stringify(process.env.OpenWeatherAPI)
+            OpenWAPI: JSON.stringify(process.env.OpenWeatherAPI),
+            GeoNameURI: JSON.stringify(process.env.GeoNameURI),
+            GeoNameUserName: JSON.stringify(process.env.GeoNameUserName),
+            WeatherbitURI: JSON.stringify(process.env.WeatherbitURI),
+            WeatherbitAPI: JSON.stringify(process.env.WeatherbitAPI),
+            PixabayURI: JSON.stringify(process.env.PixabayURI),
+            PixabayAPI: JSON.stringify(process.env.PixabayAPI)
         }),
         new CleanWebpackPlugin({
             // Simulate the removal of files

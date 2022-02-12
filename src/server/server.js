@@ -8,15 +8,15 @@ const bodyParser = require('body-parser');
 const path = require('path')
 const port = 8082;
 
+//Here we are configuring express to use body-parser as middle-ware.
 // Require Express to run server and routes
 const express = require('express');
 const apiKey = process.env.API_KEY;
 
+
 // Start up an instance of app
 const app = express();
-
 /* Middleware*/
-//Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -70,3 +70,4 @@ function addHistory (req, res){
     // console.log(req.body)
     //console.log(projectData)
 }
+

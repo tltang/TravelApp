@@ -14,10 +14,6 @@ describe("Testing the API functionalities exist", () => {
         expect(fetchLanguage).toBeDefined();
     })
 
-    // function fetchCategory
-    test('verify fetchCategory exist', () => {
-        expect(fetchCategory).toBeDefined();
-    })
 
 });
 

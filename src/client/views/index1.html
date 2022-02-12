@@ -19,17 +19,19 @@
  </header>
  <main>
      <section>
-         <H1>Zip Code</H1>
+         <H1>Enter the Trip Details</H1>
          <br>
          <form class="" onsubmit="return Client.handleSubmit3(event)">
-         <div class ="holder zip">
-             <label for="zip">Enter Zipcode here</label>
-             <input type="text" id="zip" placeholder="enter zip code here" onfocus="Client.onFocus1()" onblur="Client.onBlur1()">
+         <div class ="holder city">
+             <label for="city">Enter City Name</label>
+             <input type="text" id="city" placeholder="city name" onfocus="Client.onFocus1()" onblur="Client.onBlur1()">
          </div>
-         <div class ="holder feel">
-             <label for="feelings">How are you feeling today?</label>
-             <textarea class= "myInput" id="feelings" onfocus="Client.onFocus2()" onblur="Client.onBlur2()" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
-             <button id="generate" type = "submit" name="" value="submit" onclick="return Client.handleSubmit3(event)" onsubmit="return Client.handleSubmit3(event)"> Generate </button>
+         <div class ="holder date">
+             <label for="tripdate">Trip Start Date</label>
+             <input type="date"  id="tripdate"  onfocus="Client.onFocus2()" onblur="Client.onBlur2()" placeholder="departure date">
+             <label for="tripdate2">Trip Return Date</label>
+             <input type="date"  id="tripdate2" onfocus="Client.onFocus2()" onblur="Client.onBlur2()" placeholder="return date">
+             <button id="generate" type = "submit" name="" value="submit" onclick="return Client.handleSubmit3(event)" onsubmit="return Client.handleSubmit3(event)">Search</button>
          </div>
          </form>
          <div class="LoadImage"></div>
@@ -45,7 +47,7 @@
                  <div id = "content"></div>
              </div>
          </div>
-         <div class='scoreboard'></div>
+<!--         <div class='scoreboard'></div>-->
      </section>
  </main>
 </body>

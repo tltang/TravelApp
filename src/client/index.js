@@ -1,8 +1,8 @@
-import { checkForInput,checkForURL, checkForZip } from './js/nameChecker'
-import {handleSubmit, handleSubmit2, handleSubmit3} from './js/formHandler'
-import { onBlur,onFocus,onBlur1,onFocus1,onBlur2,onFocus2 } from './js/formHandler'
-import {createLanguageTable, appendLanguage, createCategoryTable, appendCategory} from './js/formHandler'
-import {fetchLanguage, fetchCategory, fetchZip} from './js/API'
+import { checkForInput } from './js/nameChecker'
+import {handleSubmit, handleSubmit3} from './js/formHandler'
+import { onBlur,onFocus,onBlur1,onFocus1,onBlur2,onFocus2, daysBetween } from './js/formHandler'
+import {createLanguageTable, appendLanguage, createTripTable, appendTrip} from './js/formHandler'
+import {fetchLanguage, fetchZip, fetchWeather, fetchImage} from './js/API'
 import './styles/resets.scss'
 import './styles/base.scss'
 import './styles/footer.scss'
@@ -11,10 +11,7 @@ import './styles/header.scss'
 
 export {
     checkForInput,
-    checkForURL,
-    checkForZip,
     handleSubmit,
-    handleSubmit2,
     handleSubmit3,
     onBlur,
     onFocus,
@@ -23,12 +20,14 @@ export {
     onBlur2,
     onFocus2,
     createLanguageTable,
+    createTripTable,
     appendLanguage,
-    createCategoryTable,
-    appendCategory,
+    appendTrip,
     fetchLanguage,
-    fetchCategory,
-    fetchZip
+    fetchZip,
+    fetchWeather,
+    fetchImage,
+    daysBetween
 }
 //console.log(checkForInput);
 
