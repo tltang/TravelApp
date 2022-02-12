@@ -14,11 +14,6 @@ describe("Testing the submit functionalities exist", () => {
         expect(handleSubmit).toBeDefined();
     })
 
-    // function handleSubmit3
-    test('verify handleSubmit2 exist', () => {
-        expect(handleSubmit3).toBeDefined();
-    })
-
     // function createTripTable
     test('verify createTripTable exist', () => {
         expect(createTripTable).toBeDefined();

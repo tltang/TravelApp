@@ -79,9 +79,9 @@ export async function fetchImage(baseURL, key, city, country, tripdate, tripdate
                     // Client.daysBetween(date1, date2);
                     // DateDiff.inDays(date1, date2);
                 const tempdata   = "High Temp:" + hightemp + ", Low Temp: " + lowtemp + ", Temp: " + temp;
-                // Client.appendTrip(dest, triplength, tempdata);
-                let pic = document.getElementById("content");
-                pic.innerHTML = `<div><img src=imgData alt="Photo of the city"`
+                Client.appendTrip(dest, triplength, tempdata);
+                //let pic = document.getElementById("content");
+                //pic.innerHTML = `<div><img src=imgData alt="Photo of the city"`
                 // newdatas.forEach((newdata) => {
                 //     //const temp = res.main.temp;
                 //     console.log("append data");
@@ -104,27 +104,6 @@ export async function fetchImage(baseURL, key, city, country, tripdate, tripdate
 //         postData('/addHistory', {temperature: temp, feeling: Feeling, date:newDate})
 //         updateUI()
 //     })
-
-export async function fetchLanguage(baseURL, requestOptions) {
-    try {
-        const result = await fetch(baseURL, requestOptions)
-            .then(res => res.json())
-            .then(function (res) {
-                const newdatas = res.language_list;
-                let i1 = 0;
-                newdatas.forEach((newdata) => {
-                    let lang = newdata.name;
-                    let relev = newdata.relevance;
-                    i1++;
-
-                    // console.log("append data");
-                    Client.appendLanguage(i1, lang, relev);
-                });
-            })
-    } catch (e) {
-        console.log('error', e)
-    }
-}
 
 // // Create a new date instance dynamically with JS
 // let d = new Date();

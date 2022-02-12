@@ -26,39 +26,6 @@ export function onBlur2() {
 
 export function handleSubmit(event) {
     event.preventDefault()
-
-    let baseURL = "https://api.meaningcloud.com/lang-4.0/identification";
-
-    // console.log("i am in submit");
-    // check what text was put into the form field
-    let formText = document.getElementById('name').value
-    const isValid = Client.checkForInput(formText);
-
-    const formdata = new FormData();
-    //console.log(`Your API key is ${API_KEY1}`);
-    formdata.append("key", API_KEY1);
-    formdata.append("txt", formText);
-
-    const requestOptions = {
-        method: 'POST',
-        body: formdata,
-        redirect: 'follow'
-    };
-
-    // console.log(requestOptions);
-    // console.log("::: Form Submitted :::")
-
-    if (isValid) {
-        Client.createLanguageTable();
-        Client.fetchLanguage(baseURL, requestOptions);
-    } else {
-        alert('Please enter a phrase first!');
-    }
-}
-
-export function handleSubmit3(event) {
-    event.preventDefault()
-
     const apiKey = GeoNameUserName;
     let baseURL = GeoNameURI;
 
@@ -70,10 +37,12 @@ export function handleSubmit3(event) {
     const isValid1 = Client.checkForInput(formText1);
     const isValid2 = Client.checkForInput(formText2);
     const isValid3 = Client.checkForInput(formText3);
+    console.log("2");
 
-    console.log(formText2);
     if (isValid1 && isValid2 & isValid3) {
+        console.log("3");
         Client.createTripTable();
+        console.log("4");
         const newCity     =  document.getElementById('city').value;
         const tripdate    =  document.getElementById('tripdate').value;
         const tripdate2   =  document.getElementById('tripdate2').value;
@@ -114,47 +83,6 @@ export function createTripTable()  {
     scoreboardTableBody.className = "scoreboardTable-Body"
     scoreboardTable.append(scoreboardTableBody) // Appends the table body group element to the table
     scoreDiv.append(scoreboardTable) // Appends the table to the scoreboard div
-}
-
-export function createLanguageTable()  {
-    const scoreDiv = document.querySelector("div.scoreboard") // Find the scoreboard div in our html
-    let tableHeaders = ["Language#", "Language", "Relevance"]
-
-    while (scoreDiv.firstChild) scoreDiv.removeChild(scoreDiv.firstChild) // Remove all children from scoreboard div (if any)
-
-    let scoreboardTable = document.createElement('table') // Create the table itself
-    scoreboardTable.className = 'scoreboardTable'
-    let scoreboardTableHead = document.createElement('thead') // Creates the table header group element
-    scoreboardTableHead.className = 'scoreboardTableHead'
-    let scoreboardTableHeaderRow = document.createElement('tr') // Creates the row that will contain the headers
-    scoreboardTableHeaderRow.className = 'scoreboardTableHeaderRow'
-// Will iterate over all the strings in the tableHeader array and will append the header cells to the table header row
-    tableHeaders.forEach(header => {
-        let scoreHeader = document.createElement('th') // Creates the current header cell during a specific iteration
-        scoreHeader.innerText = header
-        scoreboardTableHeaderRow.append(scoreHeader) // Appends the current header cell to the header row
-    })
-    scoreboardTableHead.append(scoreboardTableHeaderRow) // Appends the header row to the table header group element
-    scoreboardTable.append(scoreboardTableHead)
-    let scoreboardTableBody = document.createElement('tbody') // Creates the table body group element
-    scoreboardTableBody.className = "scoreboardTable-Body"
-    scoreboardTable.append(scoreboardTableBody) // Appends the table body group element to the table
-    scoreDiv.append(scoreboardTable) // Appends the table to the scoreboard div
-}
-
-// The function below will accept a single score and its index to create the global ranking
-export function appendLanguage(langNo, language1, relev1) {
-    const scoreboardTable = document.querySelector('.scoreboardTable') // Find the table we created
-    let scoreboardTableBodyRow = document.createElement('tr') // Create the current table row
-    scoreboardTableBodyRow.className = 'scoreboardTableBodyRow'
-    let langNoData = document.createElement('td')
-    langNoData.innerText = langNo
-    let langData = document.createElement('td')
-    langData.innerText = language1
-    let relevData = document.createElement('td')
-    relevData.innerText = relev1
-    scoreboardTableBodyRow.append(langNoData, langData, relevData) // Append all 5 cells to the table row
-    scoreboardTable.append(scoreboardTableBodyRow) // Append the current row to the scoreboard table body
 }
 
 // The function below will accept a single score and its index to create the global ranking

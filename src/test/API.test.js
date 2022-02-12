@@ -1,6 +1,5 @@
 // Import the js file to test
-import { fetchLanguage } from '../client/js/API'
-import { fetchCategory } from '../client/js/API'
+import { fetchZip } from '../client/js/API'
 
 // The describe() function takes two arguments - a string description, and a test suite as a callback function.
 // A test suite may contain one or more related tests
@@ -9,9 +8,9 @@ import { fetchCategory } from '../client/js/API'
 describe("Testing the API functionalities exist", () => {
     // The test() function has two arguments - a string description, and an actual test as a callback function.
 
-    // function fetchLanguage
-    test('verify fetchLanguage exist', () => {
-        expect(fetchLanguage).toBeDefined();
+    // function fetchZip
+    test('verify fetchZip exist', () => {
+        expect(fetchZip).toBeDefined();
     })
 
 

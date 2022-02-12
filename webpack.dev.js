@@ -35,10 +35,6 @@ module.exports = {
             template: "./src/client/views/index.html",
             filename: "./index.html",
         }),
-        new HtmlWebPackPlugin({
-            template: "./src/client/views/index1.html",
-            filename: "./index1.html",
-        }),
         new CopyPlugin([
             {from: "./src/client/media/Travel.jpg", to: './media/Travel.jpg'}],
         ),
