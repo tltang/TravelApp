@@ -37,12 +37,9 @@ export function handleSubmit(event) {
     const isValid1 = Client.checkForInput(formText1);
     const isValid2 = Client.checkForInput(formText2);
     const isValid3 = Client.checkForInput(formText3);
-    console.log("2");
 
     if (isValid1 && isValid2 & isValid3) {
-        console.log("3");
-        Client.createTripTable();
-        console.log("4");
+        // Client.createTripTable();
         const newCity     =  document.getElementById('city').value;
         const tripdate    =  document.getElementById('tripdate').value;
         const tripdate2   =  document.getElementById('tripdate2').value;
@@ -57,47 +54,6 @@ export function handleSubmit(event) {
     else if (isValid3 === false){
         alert('Please enter a valid trip end date first');
     }
-}
-
-export function createTripTable()  {
-    const scoreDiv = document.querySelector("div.scoreboard") // Find the scoreboard div in our html
-    let tableHeaders = ["Trip City", "Count Down", "Trip Length", "Weather"]
-
-    while (scoreDiv.firstChild) scoreDiv.removeChild(scoreDiv.firstChild) // Remove all children from scoreboard div (if any)
-
-    let scoreboardTable = document.createElement('table') // Create the table itself
-    scoreboardTable.className = 'scoreboardTable'
-    let scoreboardTableHead = document.createElement('thead') // Creates the table header group element
-    scoreboardTableHead.className = 'scoreboardTableHead'
-    let scoreboardTableHeaderRow = document.createElement('tr') // Creates the row that will contain the headers
-    scoreboardTableHeaderRow.className = 'scoreboardTableHeaderRow'
-// Will iterate over all the strings in the tableHeader array and will append the header cells to the table header row
-    tableHeaders.forEach(header => {
-        let scoreHeader = document.createElement('th') // Creates the current header cell during a specific iteration
-        scoreHeader.innerText = header
-        scoreboardTableHeaderRow.append(scoreHeader) // Appends the current header cell to the header row
-    })
-    scoreboardTableHead.append(scoreboardTableHeaderRow) // Appends the header row to the table header group element
-    scoreboardTable.append(scoreboardTableHead)
-    let scoreboardTableBody = document.createElement('tbody') // Creates the table body group element
-    scoreboardTableBody.className = "scoreboardTable-Body"
-    scoreboardTable.append(scoreboardTableBody) // Appends the table body group element to the table
-    scoreDiv.append(scoreboardTable) // Appends the table to the scoreboard div
-}
-
-// The function below will accept a single score and its index to create the global ranking
-export function appendTrip(dest, triplength, tempdata) {
-    const scoreboardTable = document.querySelector('.scoreboardTable') // Find the table we created
-    let scoreboardTableBodyRow = document.createElement('tr') // Create the current table row
-    scoreboardTableBodyRow.className = 'scoreboardTableBodyRow'
-    let destData = document.createElement('td')
-    destData.innerText = dest
-    let triplengthData = document.createElement('td')
-    triplengthData.innerText = triplength
-    let tempData = document.createElement('td')
-    tempData.innerText = tempdata
-    scoreboardTableBodyRow.append(destData, triplengthData, tempData) // Append all 5 cells to the table row
-    scoreboardTable.append(scoreboardTableBodyRow) // Append the current row to the scoreboard table body
 }
 
 export function daysBetween ( date1, date2 ) {

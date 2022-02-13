@@ -72,14 +72,33 @@ export async function fetchImage(baseURL, key, city, country, tripdate, tripdate
                 //console.log(res);
                 const imgData = res.hits[0].webformatURL
                 console.log(imgData);
+                const today = new Date();
+                const dd = String(today.getDate()).padStart(2, '0');
+                const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                const yyyy = today.getFullYear();
+                let d = mm + '/' + dd + '/' + yyyy;
+                console.log(d);
+                const date0 = new Date(d);
+                console.log(date0);
+                console.log(tripdate);
                 const date1 = new Date(tripdate);
+                console.log(date1);
                 const date2 = new Date(tripdate2);
+                const CountDown_In_Time  = date1.getTime() - date0.getTime();
+                const CountDown_In_Days  = CountDown_In_Time / (1000 * 3600 * 24);
+                const Difference_In_Time = date2.getTime() - date1.getTime();
+                const Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
                 const dest = city + "," + country;
-                const triplength = 1;
+                const countdown  = "Count Down: " + CountDown_In_Days + " Days";
+                const triplength = "Trip Length: " + Difference_In_Days + " Days";
                     // Client.daysBetween(date1, date2);
                     // DateDiff.inDays(date1, date2);
                 const tempdata   = "High Temp:" + hightemp + ", Low Temp: " + lowtemp + ", Temp: " + temp;
-                Client.appendTrip(dest, triplength, tempdata);
+                document.getElementById('countdown').innerHTML = countdown;
+                document.getElementById('date').innerHTML = triplength;
+                document.getElementById('temp').innerHTML = tempdata;
+//         document.getElementById('content').innerHTML = allData.feeling;
+                // Client.appendTrip(dest, triplength, tempdata);
                 //let pic = document.getElementById("content");
                 //pic.innerHTML = `<div><img src=imgData alt="Photo of the city"`
                 // newdatas.forEach((newdata) => {
