@@ -14,7 +14,6 @@
          <div class= "hdnavbar" id="home"><a href="index.html">Home</a></div>
          <div class= "hdnavbar" id="previous"><a href="index.html">&laquo; Prev</a></div>
          <div class= "hdnavbar" id="next"><a href="index.html">Next &raquo;</a></div>
-         <div class= "hdnavbar" id="apisource"><a href="https://www.meaningcloud.com/developer/apis" target="_blank">API Source</a></div>
      </div>
  </header>
  <main>
@@ -43,13 +42,20 @@
          <div class ="holder entry">
              <div class = "title">Most Recent Entry</div>
              <div id = "entryHolder">
+                 <div id = "dest"></div>
                  <div id = "date"></div>
                  <div id = "temp"></div>
                  <div id = "content"></div>
              </div>
          </div>
-<!--         <div class='scoreboard'></div>-->
      </section>
  </main>
 </body>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+    }
+</script>
 </html>

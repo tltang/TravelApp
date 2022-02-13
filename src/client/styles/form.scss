@@ -19,7 +19,7 @@ input {
 }
 
 .entry{
-    background: rgba(59, 74, 107, .4);
+    background: rgba(107, 65, 59, 0.4);
 }
 
 #subBtn {
@@ -55,26 +55,4 @@ button{
     box-shadow: 2px 4px 5px #444;
 }
 
-.scoreboardTable {
-    padding: 0;
-    margin: auto;
-    border-collapse: collapse;
-    width: 80%;
-    text-align: center;
-    color: rgba(6, 7, 5, 0.72);
-}
-.scoreboardTableHeaderRow {
-    color: darkorange;
-    font-weight: bold;
-    height: 50px;
-}
-.scoreboardTableBodyRow:nth-child(odd){background-color: rgba(128, 128, 128, 0.050);}
-#latestUserScore {
-    background-color: crimson;
-}
-.scoreboardTableBodyRow:hover{
-    background-color: darkorange;
-}
-.scoreboardTable tr td {
-    height: 25px;
-}
+

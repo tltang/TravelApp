@@ -1,5 +1,5 @@
 import { checkForInput } from './js/nameChecker'
-import {handleSubmit} from './js/formHandler'
+import {handleSubmit, postData, updateUI} from './js/formHandler'
 import { onBlur,onFocus,onBlur1,onFocus1,onBlur2,onFocus2, daysBetween } from './js/formHandler'
 import {fetchZip, fetchWeather, fetchImage} from './js/API'
 import './styles/resets.scss'
@@ -20,7 +20,9 @@ export {
     fetchZip,
     fetchWeather,
     fetchImage,
-    daysBetween
+    daysBetween,
+    postData,
+    updateUI
 }
 //console.log(checkForInput);
 

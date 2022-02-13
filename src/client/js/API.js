@@ -61,114 +61,28 @@ export async function fetchWeather(baseURL, key, lat, lng, country, tripdate, ci
 export async function fetchImage(baseURL, key, city, country, tripdate, tripdate2, hightemp, lowtemp, temp) {
     try {
         const params = baseURL + "key=" + key + "&q=" + city + "&image_type=photo&order=popular"
-        //https://pixabay.com/api/?key=25586865-9ae560cf7cc465db923346d10&q=yellow+flowers&image_type=photo
-        //console.log(params);
         const result = await fetch(params)
             .then(res => res.json())
             .then(function (res) {
-                //const newdata2 = res;
-
                 let i1 = 0;
                 //console.log(res);
                 const imgData = res.hits[0].webformatURL
-                console.log(imgData);
-                const today = new Date();
-                const dd = String(today.getDate()).padStart(2, '0');
-                const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-                const yyyy = today.getFullYear();
-                let d = mm + '/' + dd + '/' + yyyy;
-                console.log(d);
-                const date0 = new Date(d);
-                console.log(date0);
-                console.log(tripdate);
-                const date1 = new Date(tripdate);
-                console.log(date1);
-                const date2 = new Date(tripdate2);
-                const CountDown_In_Time  = date1.getTime() - date0.getTime();
-                const CountDown_In_Days  = CountDown_In_Time / (1000 * 3600 * 24);
-                const Difference_In_Time = date2.getTime() - date1.getTime();
-                const Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
-                const dest = city + "," + country;
-                const countdown  = "Count Down: " + CountDown_In_Days + " Days";
-                const triplength = "Trip Length: " + Difference_In_Days + " Days";
-                    // Client.daysBetween(date1, date2);
-                    // DateDiff.inDays(date1, date2);
-                const tempdata   = "High Temp:" + hightemp + ", Low Temp: " + lowtemp + ", Temp: " + temp;
-                document.getElementById('countdown').innerHTML = countdown;
-                document.getElementById('date').innerHTML = triplength;
-                document.getElementById('temp').innerHTML = tempdata;
-//         document.getElementById('content').innerHTML = allData.feeling;
-                // Client.appendTrip(dest, triplength, tempdata);
-                //let pic = document.getElementById("content");
-                //pic.innerHTML = `<div><img src=imgData alt="Photo of the city"`
-                // newdatas.forEach((newdata) => {
-                //     //const temp = res.main.temp;
-                //     console.log("append data");
-                //     //return res;
-                //     i1++;
-                //
-                // });
-
+                // console.log(imgData);
+                const date0 = new Date();
+                let date1 = new Date(tripdate);
+                let date2 = new Date(tripdate2);
+                date1 =  new Date( date1.getTime() + Math.abs(date1.getTimezoneOffset()*60000) );
+                date2 =  new Date( date2.getTime() + Math.abs(date2.getTimezoneOffset()*60000) );
+                const countdown  = "<br><H2>Count Down: " + Client.daysBetween( date0, date1 ) + " Days</H2>";
+                const dest = "<H2>Destination:" + city + "</H2>";
+                const triplength = "<H2>Trip Length: " + Client.daysBetween( date1, date2 ) + " Days</H2>";
+                const tempdata   = "<H2>High Temp:" + hightemp + ", Low Temp: " + lowtemp + ", Temp: " + temp + "</H2>";
+                const imgsrc = "<img src=" + imgData + " alt='Photo of the City'>";
+                Client.postData('/addTrip', {countdown: countdown, dest: dest, triplength:triplength, tempdata: tempdata, imgsrc:imgsrc})
+                Client.updateUI()
             })
     } catch (e) {
         console.log('error', e)
     }
 }
 
-//
-// getZip(baseURL,newZip, apiKey)
-//     .then(function(data){
-//         const temp = data.main.temp;
-//         //console.log(temp);
-//         postData('/addHistory', {temperature: temp, feeling: Feeling, date:newDate})
-//         updateUI()
-//     })
-
-// // Create a new date instance dynamically with JS
-// let d = new Date();
-// let newDate = d.getMonth()+1+'.'+ d.getDate()+'.'+ d.getFullYear();
-//
-//
-// /* Function to GET Web API Data*/
-// // GET Route II: Client Side
-// // There should be an asynchronous function to fetch the data from the app endpoint
-// // By Zip Code
-// // api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&appid={API key}
-// // api.openweathermap.org/data/2.5/weather?zip=94040,us&appid={API key}
-//
-// // /* Function to POST data */
-// const postData = async ( url = '', data = {})=>{
-//     const response = await fetch(url, {
-//         method: 'POST',
-//         credentials: 'same-origin',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//         // Body data type must match "Content-Type" header
-//         body: JSON.stringify(data),
-//     });
-//
-//     try {
-//         const newData = await response.json();
-//         //console.log(newData);
-//         return newData;
-//     }catch(error) {
-//         console.log("error", error);
-//     }
-// }
-//
-// const updateUI = async () => {
-//     const request = await fetch('/ProjData');
-//     try{
-//         const allData = await request.json();
-//         //console.log(allData);
-//         document.getElementById('date').innerHTML = allData.date;
-//         document.getElementById('temp').innerHTML = allData.temperature;
-//         document.getElementById('content').innerHTML = allData.feeling;
-//
-//     }catch(error){
-//         console.log("error", error);
-//     }
-// }
-//
-//

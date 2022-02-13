@@ -54,6 +54,6 @@ module.exports = {
             {from: "./src/client/media/Travel.jpg", to: './media/Travel.jpg'}],
         ),
         new MiniCssExtractPlugin({filename: '[name].css'}),
-        // new WorkboxPlugin.GenerateSW()
+        new WorkboxPlugin.GenerateSW()
     ]
 }

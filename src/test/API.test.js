@@ -1,5 +1,5 @@
 // Import the js file to test
-import { fetchZip } from '../client/js/API'
+import { fetchZip, fetchWeather, fetchImage } from '../client/js/API'
 
 // The describe() function takes two arguments - a string description, and a test suite as a callback function.
 // A test suite may contain one or more related tests
@@ -13,6 +13,15 @@ describe("Testing the API functionalities exist", () => {
         expect(fetchZip).toBeDefined();
     })
 
+    // function fetchWeather
+    test('verify fetchWeather exist', () => {
+        expect(fetchWeather).toBeDefined();
+    })
+
+    // function fetchImage
+    test('verify fetchImage exist', () => {
+        expect(fetchImage).toBeDefined();
+    })
 
 });
 

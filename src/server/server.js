@@ -11,8 +11,6 @@ const port = 8082;
 //Here we are configuring express to use body-parser as middle-ware.
 // Require Express to run server and routes
 const express = require('express');
-const apiKey = process.env.API_KEY;
-
 
 // Start up an instance of app
 const app = express();
@@ -58,12 +56,14 @@ function GetData (req, res) {
 // The server side function should create a new entry in the apps endpoint
 // (the named JS object) consisting of the data received from the client side POST.
 
-app.post('/addHistory', addHistory )
+app.post('/addTrip', addTrip )
 
-function addHistory (req, res){
-    newEntry = { temperature: req.body.temperature,
-                 feeling: req.body.feeling,
-                 date: req.body.date }
+function addTrip (req, res){
+    newEntry = { countdown: req.body.countdown,
+        dest: req.body.dest,
+        triplength: req.body.triplength,
+        tempdata: req.body.tempdata,
+        imgsrc: req.body.imgsrc}
     Object.assign(projectData, newEntry);
     res.send(projectData);
     //projectData.push(newEntry);

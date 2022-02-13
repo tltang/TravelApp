@@ -57,16 +57,64 @@ export function handleSubmit(event) {
 }
 
 export function daysBetween ( date1, date2 ) {
+
+    const dd1 = String(date1.getDate()).padStart(2, '0');
+    const mm1 = String(date1.getMonth() + 1).padStart(2, '0'); //January is 0!
+    const yyyy1 = date1.getFullYear();
+    let d1 = mm1 + '/' + dd1 + '/' + yyyy1;
+    const dd2 = String(date2.getDate()).padStart(2, '0');
+    const mm2 = String(date2.getMonth() + 1).padStart(2, '0'); //January is 0!
+    const yyyy2 = date2.getFullYear();
+    let d2 = mm2 + '/' + dd2 + '/' + yyyy2;
+    //console.log(d1);
+    //console.log(d2);
+    const newdate1 = new Date(d1);
+    const newdate2 = new Date(d2);
     //Get 1 day in milliseconds
     const one_day=1000*60*60*24;
 
     // Convert both dates to milliseconds
-    const date1_ms = date1.getTime();
-    const date2_ms = date2.getTime();
+    const date1_ms = newdate1.getTime();
+    const date2_ms = newdate2.getTime();
 
     // Calculate the difference in milliseconds
     const difference_ms = date2_ms - date1_ms;
 
     // Convert back to days and return
     return Math.round(difference_ms/one_day);
+}
+
+// /* Function to POST data */
+export async function postData ( url = '', data = {}) {
+    try {
+        const result = await fetch(url, {
+            method: 'POST',
+            credentials: 'same-origin',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            // Body data type must match "Content-Type" header
+            body: JSON.stringify(data),
+        });
+        // console.log(result);
+        return result;
+    }catch(error) {
+        console.log("error", error);
+    }
+}
+
+export async function updateUI() {
+    const request = await fetch('/ProjData');
+    try{
+        const allData = await request.json();
+        //console.log(allData);
+        document.getElementById('countdown').innerHTML = allData.countdown;
+        document.getElementById('dest').innerHTML = allData.dest;
+        document.getElementById('date').innerHTML = allData.triplength;
+        document.getElementById('temp').innerHTML = allData.tempdata;
+        document.getElementById('content').innerHTML = allData.imgsrc;
+
+    }catch(error){
+        console.log("error", error);
+    }
 }
