@@ -78,6 +78,7 @@ export async function fetchImage(baseURL, key, city, country, tripdate, tripdate
                 const triplength = "<H2>Trip Length: " + Client.daysBetween( date1, date2 ) + " Days</H2>";
                 const tempdata   = "<H2>High Temp:" + hightemp + ", Low Temp: " + lowtemp + ", Temp: " + temp + "</H2>";
                 const imgsrc = "<img src=" + imgData + " alt='Photo of the City'>";
+                //const imgsrc = "background-image: url(" + imgData + ");"
                 Client.postData('/addTrip', {countdown: countdown, dest: dest, triplength:triplength, tempdata: tempdata, imgsrc:imgsrc})
                 Client.updateUI()
             })
